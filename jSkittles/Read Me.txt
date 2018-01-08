@@ -1,0 +1,4 @@
+jSkittles writen by christopher D'Angelo
+
+run "jSkittles.jar" to run jSkittles
+run "jskittlesSettings.jar" to change the settings
