@@ -1,0 +1,165 @@
+#
+# An unexpected error has been detected by HotSpot Virtual Machine:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6d122b79, pid=4676, tid=6508
+#
+# Java VM: Java HotSpot(TM) Client VM (1.5.0_12-b04 mixed mode)
+# Problematic frame:
+# C  [awt.dll+0xb2b79]
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0c4e82d0):  JavaThread "AWT-EventQueue-0" [_thread_in_native, id=6508]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0xffff0004
+
+Registers:
+EAX=0x01ed0036, EBX=0x00000000, ECX=0xffff0000, EDX=0x00000000
+ESP=0x0cfdf554, EBP=0x00000020, ESI=0x0c4b9090, EDI=0x0c4e8390
+EIP=0x6d122b79, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x0cfdf554)
+0x0cfdf554:   0c4e82d0 0869d1c8 0cfdf5a8 0869d1c8
+0x0cfdf564:   022682ff 0c4e8390 0cfdf5d4 0cfdf5d0
+0x0cfdf574:   00000020 00ff0000 0000ff00 000000ff
+0x0cfdf584:   00000000 00000000 0cfdf58c 00000000
+0x0cfdf594:   0cfdf5d4 0869e600 00000000 0869d1c8
+0x0cfdf5a4:   0cfdf5b8 0cfdf5f4 022629e3 00000000
+0x0cfdf5b4:   02266509 00000000 00000000 000000ff
+0x0cfdf5c4:   0000ff00 00ff0000 00000020 04866910 
+
+Instructions: (pc=0x6d122b79)
+0x6d122b69:   6d 50 e8 f9 d0 ff ff 89 86 c0 00 00 00 8b 48 04
+0x6d122b79:   8b 41 04 50 55 e8 3d 57 00 00 83 c4 08 85 c0 75 
+
+
+Stack: [0x0cfa0000,0x0cfe0000),  sp=0x0cfdf554,  free space=253k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [awt.dll+0xb2b79]
+
+[error occurred during error reporting, step 120, id 0xc0000005]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.awt.windows.Win32SurfaceData.initOps(Lsun/awt/windows/WComponentPeer;IIIIII)V+0
+j  sun.awt.windows.Win32SurfaceData.<init>(Lsun/awt/windows/WComponentPeer;Lsun/java2d/loops/SurfaceType;I)V+191
+j  sun.awt.windows.Win32SurfaceData.createData(Lsun/awt/windows/WComponentPeer;I)Lsun/awt/windows/Win32SurfaceData;+15
+j  sun.awt.Win32GraphicsConfig.createSurfaceData(Lsun/awt/windows/WComponentPeer;I)Lsun/java2d/SurfaceData;+2
+j  sun.awt.windows.WComponentPeer.replaceSurfaceData(I)V+59
+j  sun.awt.windows.WComponentPeer.replaceSurfaceData()V+5
+j  sun.awt.windows.WComponentPeer.displayChanged()V+1
+j  sun.awt.windows.WCanvasPeer.displayChanged()V+9
+j  sun.awt.windows.WPanelPeer.displayChanged()V+1
+j  sun.awt.windows.WWindowPeer.displayChanged()V+5
+j  sun.awt.SunDisplayChanger.notifyListeners()V+65
+j  sun.awt.Win32GraphicsDevice.displayChanged()V+19
+j  sun.awt.Win32GraphicsEnvironment.displayChanged()V+31
+j  sun.awt.windows.WToolkit$4.run()V+6
+j  java.awt.event.InvocationEvent.dispatch()V+47
+j  java.awt.EventQueue.dispatchEvent(Ljava/awt/AWTEvent;)V+26
+j  java.awt.EventDispatchThread.pumpOneEventForHierarchy(ILjava/awt/Component;)Z+233
+j  java.awt.EventDispatchThread.pumpEventsForHierarchy(ILjava/awt/Conditional;Ljava/awt/Component;)V+26
+j  java.awt.EventDispatchThread.pumpEvents(ILjava/awt/Conditional;)V+4
+j  java.awt.EventDispatchThread.pumpEvents(Ljava/awt/Conditional;)V+3
+j  java.awt.EventDispatchThread.run()V+9
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00508680 JavaThread "DestroyJavaVM" [_thread_blocked, id=6036]
+=>0x0c4e82d0 JavaThread "AWT-EventQueue-0" [_thread_in_native, id=6508]
+  0x0c4c49a0 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=5776]
+  0x0c46c288 JavaThread "AWT-Windows" daemon [_thread_in_native, id=2716]
+  0x0c45c448 JavaThread "AWT-Shutdown" [_thread_blocked, id=6360]
+  0x01ecd2d8 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=1040]
+  0x01ecd7d8 JavaThread "CompilerThread0" daemon [_thread_blocked, id=5784]
+  0x01ecc950 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=6412]
+  0x01ec1b78 JavaThread "Finalizer" daemon [_thread_blocked, id=5740]
+  0x01ec05b0 JavaThread "Reference Handler" daemon [_thread_blocked, id=4144]
+
+Other Threads:
+  0x01eb9dc8 VMThread [id=5388]
+  0x01e65860 WatcherThread [id=648]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 576K, used 119K [0x04260000, 0x04300000, 0x04740000)
+  eden space 512K,  10% used [0x04260000, 0x0426dcc8, 0x042e0000)
+  from space 64K, 100% used [0x042e0000, 0x042f0000, 0x042f0000)
+  to   space 64K,   0% used [0x042f0000, 0x042f0000, 0x04300000)
+ tenured generation   total 3148K, used 2342K [0x04740000, 0x04a53000, 0x08260000)
+   the space 3148K,  74% used [0x04740000, 0x04989970, 0x04989a00, 0x04a53000)
+ compacting perm gen  total 8192K, used 5192K [0x08260000, 0x08a60000, 0x0c260000)
+   the space 8192K,  63% used [0x08260000, 0x08772040, 0x08772200, 0x08a60000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00400000 - 0x0040d000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\bin\javaw.exe
+0x776c0000 - 0x77840000 	C:\Windows\SysWOW64\ntdll.dll
+0x76530000 - 0x76640000 	C:\Windows\syswow64\kernel32.dll
+0x75d10000 - 0x75d56000 	C:\Windows\syswow64\KERNELBASE.dll
+0x64d00000 - 0x64d34000 	C:\Program Files\Alwil Software\Avast5\snxhk.dll
+0x76800000 - 0x768a0000 	C:\Windows\syswow64\ADVAPI32.dll
+0x76360000 - 0x7640c000 	C:\Windows\syswow64\msvcrt.dll
+0x74e10000 - 0x74e29000 	C:\Windows\SysWOW64\sechost.dll
+0x75b00000 - 0x75bf0000 	C:\Windows\syswow64\RPCRT4.dll
+0x74db0000 - 0x74e10000 	C:\Windows\syswow64\SspiCli.dll
+0x74da0000 - 0x74dac000 	C:\Windows\syswow64\CRYPTBASE.dll
+0x768a0000 - 0x769a0000 	C:\Windows\syswow64\USER32.dll
+0x75bf0000 - 0x75c80000 	C:\Windows\syswow64\GDI32.dll
+0x77690000 - 0x7769a000 	C:\Windows\syswow64\LPK.dll
+0x75d60000 - 0x75dfd000 	C:\Windows\syswow64\USP10.dll
+0x72640000 - 0x7268c000 	C:\Windows\system32\apphelp.dll
+0x6d470000 - 0x6d4fd000 	C:\Windows\AppPatch\AcLayers.DLL
+0x74eb0000 - 0x75afa000 	C:\Windows\syswow64\SHELL32.dll
+0x74e50000 - 0x74ea7000 	C:\Windows\syswow64\SHLWAPI.dll
+0x76040000 - 0x7619c000 	C:\Windows\syswow64\ole32.dll
+0x76410000 - 0x7649f000 	C:\Windows\syswow64\OLEAUT32.dll
+0x735b0000 - 0x735c7000 	C:\Windows\system32\USERENV.dll
+0x735a0000 - 0x735ab000 	C:\Windows\system32\profapi.dll
+0x71fd0000 - 0x72021000 	C:\Windows\system32\WINSPOOL.DRV
+0x71200000 - 0x71212000 	C:\Windows\system32\MPR.dll
+0x767a0000 - 0x76800000 	C:\Windows\system32\IMM32.DLL
+0x76d10000 - 0x76ddc000 	C:\Windows\syswow64\MSCTF.dll
+0x6d740000 - 0x6d8dd000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\client\jvm.dll
+0x728c0000 - 0x728f2000 	C:\Windows\system32\WINMM.dll
+0x6d300000 - 0x6d308000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\hpi.dll
+0x74e30000 - 0x74e35000 	C:\Windows\syswow64\PSAPI.DLL
+0x6d710000 - 0x6d71c000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\verify.dll
+0x6d380000 - 0x6d39d000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\java.dll
+0x6d730000 - 0x6d73f000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\zip.dll
+0x6d070000 - 0x6d1da000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\awt.dll
+0x6d200000 - 0x6d22f000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\cmm.dll
+0x6d440000 - 0x6d45f000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\jpeg.dll
+0x71ca0000 - 0x71d20000 	C:\Windows\system32\uxtheme.dll
+0x71c00000 - 0x71c13000 	C:\Windows\system32\dwmapi.dll
+0x6d2b0000 - 0x6d300000 	C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\jre\bin\fontmanager.dll
+
+VM Arguments:
+java_command: com.mathhead200.jskittles2.frame.JSkittles2
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.6.0_26
+CLASSPATH=.;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip
+PATH=C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\bin\..\jre\bin\client;C:\Program Files (x86)\EasyEclipse Expert Java 1.3.1.1\jre\bin\..\jre\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Haskell\bin;C:\Program Files (x86)\Haskell Platform\2010.2.0.0\lib\extralibs\bin;C:\Program Files (x86)\Haskell Platform\2010.2.0.0\bin;C:\Program Files (x86)\Haskell Platform\2010.1.0.0\lib\extralibs\bin;C:\Program Files (x86)\Haskell Platform\2010.1.0.0\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\EgisTec\MyWinLocker 3\x86;C:\Program Files (x86)\EgisTec\MyWinLocker 3\x64;C:\Program Files (x86)\Java\jre6\bin;C:\strawberry\c\bin;C:\strawberry\perl\bin;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Java\jdk1.7.0\bin;C:\Program Files (x86)\Haskell Platform\2010.1.0.0\mingw\bin;C:\Program Files (x86)\WSpace\bin;C:\Program Files (x86)\Lua\5.1;C:\Program Files (x86)\Lua\5.1\clibs;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Users\Christopher\AppData\Roaming\cabal\bin;C:\Program Files (x86)\android-sdk_r06-windows\android-sdk-windows\tools;C:\Python27
+USERNAME=Christopher
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 37 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.1 Build 7601 Service Pack 1
+
+CPU:total 4 (cores per cpu 8, threads per core 2) family 6 model 5 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, ht
+
+Memory: 4k page, physical 3854848k(2267388k free), swap 4194303k(4194303k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.5.0_12-b04) for windows-x86, built on May  2 2007 02:07:59 by "java_re" with MS VC++ 6.0
+
